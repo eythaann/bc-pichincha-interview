@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+
+  .tableContainer {
+    background-color: var(--color-white);
+    width: 100%;
+    padding: 20px;
+    border-radius: var(--config-border-radius);
+  }
+}

@@ -1,0 +1,15 @@
+:root {
+  /* colors */
+  --color-white: #fefefe;
+  --color-gray-200: #e6e6e6;
+  --color-gray-300: #d5d5d5;
+
+  --color-bp-yellow: #FFDE22;
+  --color-bp-blue: #00205D;
+
+  /* font variables */
+  --placeholder-font-color: var(--color-gray-300);
+
+  /* config variables */
+  --config-border-radius: 4px;
+}

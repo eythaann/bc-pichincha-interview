@@ -1,0 +1,12 @@
+
+.button {
+  background-color: var(--color-bp-yellow);
+  padding: 10px;
+  border-radius: var(--config-border-radius);
+  
+  &:not(.disabled) {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

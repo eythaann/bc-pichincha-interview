@@ -1,0 +1,11 @@
+
+.input {
+  background-color: var(--color-white);
+  border-radius: var(--config-border-radius);
+  border: solid 1px var(--color-bp-blue);
+  padding: 4px;
+
+  &.placeholder {
+    color: var(--placeholder-font-color);
+  }
+}
