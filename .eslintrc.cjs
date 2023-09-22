@@ -8,10 +8,10 @@ module.exports = {
       groups: [
         ['^react$'],
         [''],
-        ['^(./|../)'],
         ['(modules/shared).*(infrastructure)', '(modules).*(infrastructure)', '(infrastructure)'],
         ['(modules/shared).*(app)', '(modules).*(app)', 'app'],
         ['(modules/shared).*(domain)', '(modules).*(domain)', 'domain'],
+        ['(.css)$'],
       ],
     }],
     'key-spacing': ['error', { 'beforeColon': false }],
