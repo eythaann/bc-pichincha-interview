@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import { Button } from '../../../shared/components/button';
-import { Input } from '../../../shared/components/input';
+import { Button } from '../../../../layouts/components/button';
+import { Input } from '../../../../layouts/components/input';
 import styles from './index.module.css';
 
 export const TopActions = () => {
