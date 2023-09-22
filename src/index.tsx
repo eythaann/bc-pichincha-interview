@@ -1,11 +1,12 @@
 import React from 'react';
 
 import { router } from './router';
-import { store } from './store';
 import classNames from 'classnames';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
+
+import { store } from './modules/shared/infrastructure/store';
 
 import './styles/variables.css';
 import './styles/reset.css';

@@ -1,0 +1,20 @@
+
+.popupContainer {
+  position: relative;
+
+  .trigger {
+    cursor: pointer;
+  }
+
+  .popup {
+    position: absolute;
+    background-color: var(--color-gray-50);
+    box-shadow: 1px 1px 10px var(--color-gray-300);
+    top: 100%;
+    z-index: 2;
+
+    &:not(.open) {
+      display: none;
+    }
+  }
+}

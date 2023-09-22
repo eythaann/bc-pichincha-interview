@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { addYears } from '../../shared/app/utils/date';
+import { dateToOwnFormat } from '../../shared/app/utils/date';
 
 import { IProduct, ProductsMap } from '../domain';
 
@@ -44,8 +44,11 @@ const slice = createSlice({
 
     setEmitionDate: (state, action: Payload<Date>) => {
       const { id, value } = action.payload;
-      setProperty(state, id, 'emitionDate', value);
-      setProperty(state, id, 'revisionDate', addYears(value, 1));
+
+      const oneYearLater = new Date(value);
+      oneYearLater.setFullYear(value.getFullYear() + 1);
+      setProperty(state, id, 'emitionDate', dateToOwnFormat(value));
+      setProperty(state, id, 'revisionDate', dateToOwnFormat(oneYearLater));
     },
   },
 });

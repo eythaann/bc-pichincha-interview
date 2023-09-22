@@ -2,7 +2,6 @@
 .button {
   border-radius: var(--config-border-radius);
   padding: 10px 20px;
-  width: min-content;
   display: inline-flex;
   align-items: center;
   height: 50px;
@@ -22,5 +21,9 @@
   &.secondary {
     background-color: var(--color-gray-200);
     color: var(--color-bp-blue);
+  }
+
+  &.disabled {
+    opacity: 0.5;
   }
 }

@@ -7,6 +7,7 @@ type IProps = {
   placeholder?: string;
   disabled?: boolean;
   label?: string;
+  error?: string;
 } & ({
   onChange: (value: string) => void;
 } | {
@@ -17,6 +18,7 @@ export const Input = ({
   value,
   disabled,
   label,
+  error,
   placeholder = 'Write here...',
   ...restProps
 }: IProps) => {
@@ -33,11 +35,13 @@ export const Input = ({
       className={cx(styles.input, {
         [styles.disabled]: disabled,
         [styles.placeholder]: !value,
+        [styles.error]: !!error,
       })}
       onChange={internalChange}
       placeholder={placeholder}
       value={value}
       disabled={disabled}
     />
+    <span className={styles.errorMessage}>{error}</span>
   </label>;
 };

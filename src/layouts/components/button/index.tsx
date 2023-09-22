@@ -2,7 +2,7 @@ import React, { MouseEvent, ReactEventHandler, ReactNode } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import style from './index.module.css';
+import styles from './index.module.css';
 
 type Props = {
   children: ReactNode;
@@ -23,7 +23,9 @@ export const Button = (props: Props) => {
     styleType = 'primary',
   } = props;
 
-  const classNames = cx(style.button, style[styleType]);
+  const classNames = cx(styles.button, styles[styleType], {
+    [styles.disabled]: disabled,
+  });
 
   if (props.type === 'link') {
     return <Link className={classNames} to={props.route}>
@@ -37,7 +39,7 @@ export const Button = (props: Props) => {
     }
   };
 
-  return <button className={classNames} onClick={onInternalClick}>
+  return <button disabled={disabled} className={classNames} onClick={onInternalClick}>
     {children}
   </button>;
 };

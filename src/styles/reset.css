@@ -1,32 +1,3 @@
-
-:root {
-  --primary-color: #181818;
-  --secondary-color: #f0f0f0;
-
-  --main-typo: "prelo", sans-serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary-color: #f0f0f0;
-    --secondary-color: #181818;
-  }
-}
-
-@media (prefers-contrast: high) {
-  :root {
-    --primary-color: black;
-    --secondary-color: white;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none;
-    transition: none;
-  }
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -69,11 +40,6 @@ h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, em {
   font-style: inherit;
   text-decoration: none;
   color: inherit;
-}
-
-::selection {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
 }
 
 form, input, textarea, select, button, label {

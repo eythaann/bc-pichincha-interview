@@ -1,15 +1,56 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 80%;
-  margin: auto;
+  margin: 30px auto 0;
+
+  .spinerBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 400px;
+  }
 
   .tableContainer {
-    background-color: var(--color-white);
+    --table-grid-column: 1fr 2fr 2fr 2fr 2fr 1fr;
+    --table-min-width: 885px;
+
+    background-color: var(--color-gray-50);
     width: 100%;
     padding: 20px;
     border-radius: var(--config-border-radius);
+
+    .scroollContainer {
+      overflow-x: auto;
+
+      .tableHeader {
+        min-width: var(--table-min-width);
+        display: grid;
+        grid-template-columns: var(--table-grid-column);
+        background-color: var(--color-gray-100);
+        border-bottom: 1px solid var(--color-gray-200);
+        align-items: center;
+        height: 60px;
+        font-weight: 600;
+
+        >:first-child {
+          display: flex;
+          justify-content: center;
+        }
+      }
+
+      .table {
+        max-height: 60vh;
+        overflow-y: auto;
+        min-width: var(--table-min-width);
+      }
+    }
+
+    .tableFooter {
+      padding-top: 10px;
+    }
   }
+
 }

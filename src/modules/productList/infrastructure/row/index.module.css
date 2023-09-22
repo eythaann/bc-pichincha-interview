@@ -1,0 +1,45 @@
+.row {
+  display: grid;
+  grid-template-columns: var(--table-grid-column);
+  border-bottom: 1px solid var(--color-gray-200);
+  height: 50px;
+  align-items: center;
+
+  >:first-child {
+    display: flex;
+    justify-content: center;
+  }
+
+  >:last-child {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+
+  >div {
+    text-overflow: ellipsis;
+    padding-right: 10px;
+
+    &:not(:last-of-type) {
+      overflow: hidden;
+    }
+  }
+
+  .action {
+    padding-right: 15px;
+    font-size: 20px;
+    font-weight: 900;
+  }
+
+  .popupOption {
+    padding: 10px;
+    width: 100px;
+
+    &:hover {
+      background-color: var(--color-blue-100);
+    }
+  }
+}

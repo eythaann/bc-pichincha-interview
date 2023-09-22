@@ -7,8 +7,6 @@ import ErrorPage from '../modules/error/infrastructure';
 import { ProductFields } from '../modules/product/infrastructure';
 import { ProductList } from '../modules/productList/infrastructure';
 
-import { IProduct } from '../modules/product/domain';
-
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -20,12 +18,8 @@ export const router = createBrowserRouter([
         element: <ProductList/>,
       },
       {
-        path: '/product/new',
-        element: <ProductFields isNew />,
-      },
-      {
         path: '/product/:id',
-        element: <ProductFields id={'1' as IProduct['id']} />,
+        element: <ProductFields />,
       },
     ],
   },

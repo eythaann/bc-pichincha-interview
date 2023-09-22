@@ -5,10 +5,17 @@
   padding: 30px;
 }
 
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .form {
   width: 80%;
   max-width: 800px;
-  background-color: var(--color-white);
+  background-color: var(--color-gray-50);
   border-radius: var(--config-border-radius);
 
   .header {

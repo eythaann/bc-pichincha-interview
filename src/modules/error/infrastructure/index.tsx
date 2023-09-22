@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Button } from '../../../layouts/components/button';
 import { useRouteError } from 'react-router-dom';
 
 import { defaultError } from '../domain/constants';
@@ -18,6 +19,9 @@ export default function ErrorPage() {
         <p>
           <i>{error.statusText} {error.message}</i>
         </p>
+        <Button type="link" route="/">
+          Back To Home
+        </Button>
       </div>
     </div>
   );

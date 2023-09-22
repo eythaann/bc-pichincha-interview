@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 
 declare global {
-  declare var cx: typeof classNames;
+  var cx: typeof classNames;
 
   declare module '*.module.css' {
     const classNames: {
