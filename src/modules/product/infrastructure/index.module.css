@@ -1,0 +1,33 @@
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.form {
+  width: 80%;
+  max-width: 800px;
+  background-color: var(--color-white);
+  border-radius: var(--config-border-radius);
+
+  .header {
+    font-size: 30px;
+    font-weight: 600;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .formContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 80px;
+    gap: 20px;
+    border-top: 1px solid black;
+    padding: 10px 30px;
+
+    label {
+      width: 100%;
+    }
+  }
+}

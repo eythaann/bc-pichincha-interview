@@ -3,7 +3,7 @@
   --primary-color: #181818;
   --secondary-color: #f0f0f0;
 
-  --main-typo: "test", sans-serif;
+  --main-typo: "prelo", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {

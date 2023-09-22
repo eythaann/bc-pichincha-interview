@@ -2,32 +2,42 @@ import React, { ChangeEvent } from 'react';
 
 import styles from './index.module.css';
 
-interface IProps {
+type IProps = {
   value: string;
-  onChange: (value: string) => void;
   placeholder?: string;
   disabled?: boolean;
-}
+  label?: string;
+} & ({
+  onChange: (value: string) => void;
+} | {
+  readonly: true;
+});
 
 export const Input = ({
-  onChange,
   value,
   disabled,
+  label,
   placeholder = 'Write here...',
+  ...restProps
 }: IProps) => {
   const internalChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (!disabled) {
-      onChange(e.target.value || '');
+    if (disabled || 'readonly' in restProps) {
+      return;
     }
+    restProps.onChange(e.target.value || '');
   };
 
-  return <input
-    className={cx(styles.input, {
-      [styles.disabled]: disabled,
-      [styles.placeholder]: !value,
-    })}
-    onChange={internalChange}
-    placeholder={placeholder}
-    value={value}
-  />;
+  return <label className={styles.container}>
+    <span className={styles.labelText}>{label}</span>
+    <input
+      className={cx(styles.input, {
+        [styles.disabled]: disabled,
+        [styles.placeholder]: !value,
+      })}
+      onChange={internalChange}
+      placeholder={placeholder}
+      value={value}
+      disabled={disabled}
+    />
+  </label>;
 };

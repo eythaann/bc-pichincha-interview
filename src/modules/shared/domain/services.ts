@@ -1,3 +1,3 @@
 export const ServicesUrl = {
-  products: 'http://desarrollo-staffing.pichincha.com/ipf-msa-productosfinancieros',
+  products: 'https://tribu-ti-staffing-desarrollo-afangwbmcrhucqfh.z01.azurefd.net/ipf-msa-productosfinancieros',
 } as const;

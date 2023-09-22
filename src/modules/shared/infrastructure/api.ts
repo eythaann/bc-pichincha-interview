@@ -5,21 +5,21 @@ interface Config {
   path: string;
   method: httpMethod;
   data?: any;
-  onSuccess?: <T = any>(res: T) => void;
-  onFailure?: (err: unknown) => void;
+  onSuccess?: (res: any) => void;
+  onFailure?: (err: any) => void;
   extraConfig?: RequestInit;
 }
 
-export const fetchData = async ({ url, path, method, data, extraConfig, onFailure, onSuccess }: Config) => {
+export const callApi = async ({ url, path, method, data, extraConfig = {}, onFailure, onSuccess }: Config) => {
   try {
     const response = await fetch(url + path, {
       method,
-      body: data,
+      body: JSON.stringify(data),
       mode: 'cors',
-      headers: {
+      headers: new Headers({
         'Content-Type': 'application/json',
-        'authorId': '12345678',
-      },
+        'authorId': '4444', // sublime
+      }),
       ...extraConfig,
     });
     const json = await response.json();

@@ -1,12 +1,26 @@
 
 .button {
-  background-color: var(--color-bp-yellow);
-  padding: 10px;
   border-radius: var(--config-border-radius);
-  
+  padding: 10px 20px;
+  width: min-content;
+  display: inline-flex;
+  align-items: center;
+  height: 50px;
+  font-weight: 600;
+
   &:not(.disabled) {
     &:hover {
       cursor: pointer;
     }
+  }
+
+  &.primary {
+    background-color: var(--color-bp-yellow);
+    color: var(--color-bp-blue);
+  }
+
+  &.secondary {
+    background-color: var(--color-gray-200);
+    color: var(--color-bp-blue);
   }
 }

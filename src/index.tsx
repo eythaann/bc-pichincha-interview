@@ -1,13 +1,22 @@
 import React from 'react';
 
+import { router } from './router';
+import { store } from './store';
 import classNames from 'classnames';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
 
-import './styles/reset.css';
 import './styles/variables.css';
-import { router } from './router';
+import './styles/reset.css';
+import './styles/global.css';
 
 window.cx = classNames;
 
-render( <RouterProvider router={router} />, document.getElementById('root'));
+const domNode = document.getElementById('root');
+if (domNode) {
+  const root = createRoot(domNode);
+  root.render(<Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>);
+}

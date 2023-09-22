@@ -8,7 +8,7 @@ export class Product implements IProduct {
   public name: IProduct['name'];
   public description: IProduct['description'];
   public logo: IProduct['logo'];
-  public revisitionDate: IProduct['revisitionDate'];
+  public revisionDate: IProduct['revisionDate'];
   public emitionDate: IProduct['emitionDate'];
 
   public constructor(product?: Partial<IProduct>) {
@@ -25,6 +25,6 @@ export class Product implements IProduct {
     this.description = description;
     this.logo = logo;
     this.emitionDate = emitionDate;
-    this.revisitionDate = addYears(this.emitionDate, 1);
+    this.revisionDate = addYears(this.emitionDate, 1);
   }
 }

@@ -27,7 +27,6 @@ const consolePrinter = {
 const context = await esbuild.context({
   entryPoints: ['src/index.tsx'],
   bundle: true,
-  minify: true,
   sourcemap: true,
   outfile: 'dist/bundle.js',
   plugins: [

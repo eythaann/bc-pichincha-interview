@@ -6,7 +6,7 @@ export interface IProduct {
   description: string;
   logo: string;
   emitionDate: Date;
-  revisitionDate: Date;
+  revisionDate: Date;
 }
 
-export type ProductsMap = Map<IProduct['id'], IProduct>;
+export type ProductsMap = Record<IProduct['id'], IProduct>;

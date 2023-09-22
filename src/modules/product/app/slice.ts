@@ -4,7 +4,7 @@ import { addYears } from '../../shared/app/utils/date';
 
 import { IProduct, ProductsMap } from '../domain';
 
-const initialState: ProductsMap = new Map();
+const initialState: ProductsMap = {};
 
 type Payload<T> = PayloadAction<{
   id: IProduct['id'];
@@ -17,7 +17,7 @@ const setProperty = <K extends keyof IProduct>(
   propName: K,
   value: IProduct[K],
 ) => {
-  const product = state.get(id);
+  const product = state[id];
   if (product) {
     product[propName] = value;
   }
@@ -45,7 +45,7 @@ const slice = createSlice({
     setEmitionDate: (state, action: Payload<Date>) => {
       const { id, value } = action.payload;
       setProperty(state, id, 'emitionDate', value);
-      setProperty(state, id, 'revisitionDate', addYears(value, 1));
+      setProperty(state, id, 'revisionDate', addYears(value, 1));
     },
   },
 });

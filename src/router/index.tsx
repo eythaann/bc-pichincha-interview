@@ -1,12 +1,13 @@
 import React from 'react';
 
+import { Header } from '../layouts/header';
 import { createBrowserRouter } from 'react-router-dom';
 
-import { Header } from '../layouts/header';
-
 import ErrorPage from '../modules/error/infrastructure';
-import { IProduct } from '../modules/product/infrastructure';
+import { ProductFields } from '../modules/product/infrastructure';
 import { ProductList } from '../modules/productList/infrastructure';
+
+import { IProduct } from '../modules/product/domain';
 
 export const router = createBrowserRouter([
   {
@@ -19,14 +20,12 @@ export const router = createBrowserRouter([
         element: <ProductList/>,
       },
       {
-        path: '/product',
-        element: <Product />,
-        children: [
-          {
-            path: 'new',
-            element: <Product isNew />,
-          },
-        ],
+        path: '/product/new',
+        element: <ProductFields isNew />,
+      },
+      {
+        path: '/product/:id',
+        element: <ProductFields id={'1' as IProduct['id']} />,
       },
     ],
   },

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { Button } from '../../../../layouts/components/button';
 import { Input } from '../../../../layouts/components/input';
+
 import styles from './index.module.css';
 
 export const TopActions = () => {
@@ -16,7 +17,7 @@ export const TopActions = () => {
       value={search}
       onChange={onChangeInput}
     />
-    <Button type="link" route="/product">
+    <Button type="link" route="/product/new">
         Agregar
     </Button>
   </div>;
