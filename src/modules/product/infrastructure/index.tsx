@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Input } from '../../../layouts/components/input';
 import { Spiner } from '../../../layouts/components/spiner';
@@ -9,8 +9,8 @@ import { useParams } from 'react-router-dom';
 import ErrorPage from '../../error/infrastructure';
 import { fetchProducts } from '../../productList/infrastructure/logic';
 
+import { useOnMount } from '../../shared/app/hooks/customHooks';
 import { useAppDispatch, useAppSelector, useAppStore } from '../../shared/app/hooks/reduxHooks';
-import { useOnMount } from '../../shared/app/hooks/useOnMount';
 import { getErrorByPath, selectProductErrors, selectShowErrors } from '../../shared/app/selectors/errors';
 import { errorsActions } from '../../shared/app/slices/errors';
 import { addYears, dateToOwnFormat, ownFormatToDate, validateTime } from '../../shared/app/utils/date';
@@ -54,6 +54,14 @@ export const ProductFields = () => {
     setInternalProduct(selectProductById(paramId)(store.getState()));
   });
 
+  useEffect(() => {
+    if (showErrors) {
+      const parsed = ProductScheme.safeParse(internalProduct);
+      const parsedErrors = parsed.success === false ? parsed.error.errors : [];
+      dispatch(errorsActions.setProductErrors(parsedErrors));
+    }
+  }, [internalProduct]);
+
   if (isValidId !== null && !isValidId && !isNew) {
     return <ErrorPage />;
   }
@@ -65,12 +73,6 @@ export const ProductFields = () => {
   const { name, description, id, revisionDate, emitionDate, logo } = internalProduct;
 
   const getOnChange = (propName: keyof IProduct) => (value: string) => {
-    if (showErrors) {
-      const parsed = ProductScheme.safeParse(internalProduct);
-      const parsedErrors = parsed.success === false ? parsed.error.errors : [];
-      dispatch(errorsActions.setProductErrors(parsedErrors));
-    }
-
     setInternalProduct((prevState) => ({
       ...prevState!,
       [propName]: value,

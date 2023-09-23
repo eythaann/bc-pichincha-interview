@@ -11,8 +11,8 @@ const slice = createSlice({
     'setProducts': (_, action: PayloadAction<ProductsMap>) => {
       return action.payload;
     },
-    'addProduct': (state, action: PayloadAction<IProduct>) => {
-      state[action.payload.id] = action.payload;
+    'removeProduct': (state, action: PayloadAction<IProduct['id']>) => {
+      Reflect.deleteProperty(state, action.payload);
     },
   },
 });

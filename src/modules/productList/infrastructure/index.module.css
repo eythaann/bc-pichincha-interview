@@ -15,7 +15,7 @@
 
   .tableContainer {
     --table-grid-column: 1fr 2fr 2fr 2fr 2fr 1fr;
-    --table-min-width: 885px;
+    --table-min-width: 1000px;
 
     background-color: var(--color-gray-50);
     width: 100%;

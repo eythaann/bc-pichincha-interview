@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
 import { Spiner } from '../../../layouts/components/spiner';
+import { Tooltip } from '../../../layouts/components/tooltip';
 import { fetchProducts } from './logic';
 import { ProductsTableRow } from './row';
 import { TopActions } from './topActions';
 import { useSelector } from 'react-redux';
 
-import { useOnMount } from '../../shared/app/hooks/useOnMount';
+import { useOnMount } from '../../shared/app/hooks/customHooks';
 import { selectProductsDict } from '../app/selector';
 
 import { IProduct } from '../../product/domain';
@@ -43,9 +44,9 @@ export const ProductList = () => {
         <div className={styles.tableHeader}>
           <div>Logo</div>
           <div>Nombre del producto</div>
-          <div>Descripcion</div>
-          <div>Fecha de liberacion</div>
-          <div>Fecha de reestructuracion</div>
+          <div>Descripcion <Tooltip text="Descripcion del producto">🛈</Tooltip></div>
+          <div>Fecha de liberacion <Tooltip text="Fecha de emision del producto">🛈</Tooltip></div>
+          <div>Fecha de reestructuracion <Tooltip text="Fecha de revision del producto">🛈</Tooltip></div>
         </div>
         {
           loading

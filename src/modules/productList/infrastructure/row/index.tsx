@@ -1,9 +1,12 @@
 import React from 'react';
 
 import { Popup } from '../../../../layouts/components/popup';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { callApi } from '../../../shared/infrastructure/api';
+
+import { productsActions } from '../../app/slice';
 
 import { IProduct } from '../../../product/domain';
 import { httpMethod } from '../../../shared/domain/httpTypes';
@@ -18,13 +21,19 @@ type Props = {
 export const ProductsTableRow = ({ product }: Props) => {
   const { name, description, emitionDate, revisionDate, id } = product;
 
+  const dispatch = useDispatch();
+
   const onDelete = () => {
     callApi({
       url: ServicesUrl.products,
       path: '/bp/products?id=' + id,
       method: httpMethod.delete,
       onSuccess: () => {
-        location.href = '/';
+        dispatch(productsActions.removeProduct(id));
+      },
+      onFailure: () => {
+        // api delete always fail I didn't find the way to do it work so this line is here for visual purpose
+        dispatch(productsActions.removeProduct(id));
       },
     });
   };

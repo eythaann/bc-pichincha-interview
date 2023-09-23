@@ -1,5 +1,3 @@
-import { useParams } from 'react-router-dom';
-
 import { callApi } from '../../shared/infrastructure/api';
 
 import { httpMethod } from '../../shared/domain/httpTypes';

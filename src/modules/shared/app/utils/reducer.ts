@@ -8,10 +8,8 @@ export const unifyReducersInOne = <
 >(reducers: T) => {
   return (state: NoInfer<State>, action: NoInfer<Action>): NoInfer<State> => {
     return reducers.reduce((stateToReturn, currentReducer) => {
-      if (Array.isArray(stateToReturn)) {
-        return [...stateToReturn, ...currentReducer(state, action)];
-      }
-      return { ...stateToReturn, ...currentReducer(state, action) };
+      const newstate = currentReducer(stateToReturn, action);
+      return newstate == null ? stateToReturn : newstate;
     }, state);
   };
 };

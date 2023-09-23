@@ -1,4 +1,3 @@
-
 .button {
   border-radius: var(--config-border-radius);
   padding: 10px 20px;
@@ -6,7 +5,7 @@
   align-items: center;
   height: 50px;
   font-weight: 600;
-
+  transition: background-color 200ms linear;
   &:not(.disabled) {
     &:hover {
       cursor: pointer;
@@ -16,11 +15,23 @@
   &.primary {
     background-color: var(--color-bp-yellow);
     color: var(--color-bp-blue);
+
+    &:not(.disabled) {
+      &:hover {
+        background-color: var(--color-yellow-400);
+      }
+    }
   }
 
   &.secondary {
     background-color: var(--color-gray-200);
     color: var(--color-bp-blue);
+
+    &:not(.disabled) {
+      &:hover {
+        background-color: var(--color-gray-300);
+      }
+    }
   }
 
   &.disabled {
