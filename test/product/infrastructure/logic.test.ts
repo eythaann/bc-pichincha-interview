@@ -1,7 +1,7 @@
 import { callApi } from '../../../src/modules/shared/infrastructure/api';
 import { getProductIdValidator } from '../../../src/modules/product/infrastructure/logic';
 
-jest.mock('../../shared/infrastructure/api', () => ({
+jest.mock('../../../src/modules/shared/infrastructure/api.ts', () => ({
   callApi: jest.fn(),
 }));
 

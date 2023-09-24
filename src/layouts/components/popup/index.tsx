@@ -30,14 +30,15 @@ export const Popup = ({ children, trigger }: Props) => {
   }, [open]);
 
   return <div className={styles.popupContainer}>
-    <div onClick={toggleOpen} className={styles.trigger}>{trigger}</div>
-    <div
+    <div onClick={toggleOpen} className={styles.trigger} role="button">{trigger}</div>
+    {open && <div
+      role="menu"
       ref={popupRef}
       className={cx(styles.popup, {
         [styles.open]: open,
       })}
     >
       {children}
-    </div>
+    </div>}
   </div>;
 };

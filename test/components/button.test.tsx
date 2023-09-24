@@ -2,6 +2,7 @@
 import React from 'react';
 
 import { Button } from '../../src/layouts/components/button';
+import { fireEvent, render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import TestRenderer from 'react-test-renderer';
 
@@ -47,13 +48,18 @@ describe('Button component', () => {
   });
 
   it('should render tooltip when button is disabled and disabledTooltip is provided', () => {
-    const testRenderer = TestRenderer.create(
+    const { getByRole, queryByRole } = render(
       <Button type="button" onClick={() => {}} disabled disabledTooltip="Disabled Tooltip">
         Click me
       </Button>
     );
-    const testInstance = testRenderer.root;
 
-    expect(testInstance.findByProps({ className: 'tooltip' }).children).toContain('Disabled Tooltip');
+    fireEvent.mouseEnter(getByRole('button'));
+    // @ts-ignore
+    expect(queryByRole('tooltip')).toBeInTheDocument();
+
+    fireEvent.mouseLeave(getByRole('button'));
+    // @ts-ignore
+    expect(queryByRole('tooltip')).not.toBeInTheDocument();
   });
 });

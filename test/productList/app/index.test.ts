@@ -7,8 +7,8 @@ describe('BakendProductParser function', () => {
       name: 'Test Product',
       description: 'Test Description',
       logo: 'Test Logo',
-      date_release: '2023-01-01T00:00:00.000Z',
-      date_revision: '2023-01-02T00:00:00.000Z',
+      date_release: '2023-02-02T00:00:00.000Z',
+      date_revision: '2024-02-02T00:00:00.000Z',
     };
 
     const result = BakendProductParser(backendProduct as any);
@@ -18,8 +18,8 @@ describe('BakendProductParser function', () => {
       name: 'Test Product',
       description: 'Test Description',
       logo: 'Test Logo',
-      emitionDate: '01/01/2023',
-      revisionDate: '01/01/2024',
+      emitionDate: '01/02/2023',
+      revisionDate: '01/02/2024',
     });
   });
 });

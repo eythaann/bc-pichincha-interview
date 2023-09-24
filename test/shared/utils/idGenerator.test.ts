@@ -1,4 +1,12 @@
-import { generateId } from '../../../src/modules/shared/app/utils/idGenerator';
+import crypto from 'crypto';
+
+import { generateId } from '../../../src/modules/shared/app/utils/idGenerator';;
+
+Object.defineProperty(globalThis, 'crypto', {
+  value: {
+    randomUUID: (length) => crypto.randomUUID().substring(0, length),
+  },
+});
 
 describe('generateId function', () => {
   it('should generate a string ID', () => {

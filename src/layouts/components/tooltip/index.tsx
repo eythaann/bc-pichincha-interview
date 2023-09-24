@@ -30,6 +30,7 @@ export const Tooltip = ({ text, children }: Props) => {
 
   const tooltip = visible
     ? <div
+      role="tooltip"
       className={styles.tooltip}
       style={{ top: `${position.top}px`, left: `${position.left}px` }}
     >

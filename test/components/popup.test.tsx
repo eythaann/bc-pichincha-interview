@@ -1,46 +1,32 @@
 import React from 'react';
 
 import { Popup } from '../../src/layouts/components/popup';
-import TestRenderer from 'react-test-renderer';
+import { fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 describe('Popup component', () => {
-  it('should render trigger and children', () => {
-    const testRenderer = TestRenderer.create(
-      <Popup trigger={<button>Open Popup</button>}>
-        <div>Popup Content</div>
-      </Popup>
+  it('should toggle open state on trigger click and close on click outside', () => {
+    const { getByTestId, queryByRole } = render(
+      <div>
+        <Popup trigger={<div data-testid="trigger">Open Popup</div>}>
+          <div>Popup Content</div>
+        </Popup>
+        <div data-testid="outside-element"></div>
+      </div>
     );
-    const testInstance = testRenderer.root;
 
-    expect(testInstance.findByType('button').props.children).toBe('Open Popup');
-    expect(testInstance.findByType('div').children).toContain('Popup Content');
-  });
+    expect(queryByRole('menu')).not.toBeInTheDocument();
 
-  it('should toggle open state on trigger click', () => {
-    const testRenderer = TestRenderer.create(
-      <Popup trigger={<button>Open Popup</button>}>
-        <div>Popup Content</div>
-      </Popup>
-    );
-    const testInstance = testRenderer.root;
+    fireEvent.click(getByTestId('trigger'));
+    expect(queryByRole('menu')).toBeInTheDocument();
 
-    // Initially, popup should be closed
-    expect(testInstance.findAllByProps({ className: 'popup open' }).length).toBe(0);
+    fireEvent.mouseDown(getByTestId('trigger'));
+    expect(queryByRole('menu')).not.toBeInTheDocument();
 
-    // Simulate trigger click to open popup
-    TestRenderer.act(() => {
-      testInstance.findByType('button').props.onClick();
-    });
+    fireEvent.click(getByTestId('trigger'));
+    expect(queryByRole('menu')).toBeInTheDocument();
 
-    // Now, popup should be open
-    expect(testInstance.findAllByProps({ className: 'popup open' }).length).toBe(1);
-
-    // Simulate trigger click to close popup
-    TestRenderer.act(() => {
-      testInstance.findByType('button').props.onClick();
-    });
-
-    // Now, popup should be closed again
-    expect(testInstance.findAllByProps({ className: 'popup open' }).length).toBe(0);
+    fireEvent.mouseDown(getByTestId('outside-element'));
+    expect(queryByRole('menu')).not.toBeInTheDocument();
   });
 });

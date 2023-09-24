@@ -1,7 +1,8 @@
 
 import React from 'react';
 
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
+import { act } from 'react-dom/test-utils';
 
 import { useOnMount } from '../../../src/modules/shared/app/hooks/customHooks';
 
@@ -23,9 +24,13 @@ describe('useOnMount hook', () => {
     container = null;
   });
 
-  it('should call onMount on mount', () => {
+  it('should call onMount on mount', async () => { // Marca la función de prueba como async
     const mockCallback = jest.fn();
-    ReactDOM.render(<TestComponent onMount={mockCallback} />, container);
+
+    await act(async () => { // Utiliza act y una función async
+      createRoot(container).render(<TestComponent onMount={mockCallback} />);
+    });
+
     expect(mockCallback).toHaveBeenCalledTimes(1);
   });
 });
