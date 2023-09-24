@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Avatar } from '../../../../layouts/components/avatar';
 import { Popup } from '../../../../layouts/components/popup';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -19,7 +20,7 @@ type Props = {
 };
 
 export const ProductsTableRow = ({ product }: Props) => {
-  const { name, description, emitionDate, revisionDate, id } = product;
+  const { name, description, emitionDate, revisionDate, id, logo } = product;
 
   const dispatch = useDispatch();
 
@@ -39,7 +40,7 @@ export const ProductsTableRow = ({ product }: Props) => {
   };
 
   return <div className={styles.row}>
-    <div>Img</div>
+    <div><Avatar url={logo} fallbackText={name} /></div>
     <div>{name}</div>
     <div>{description}</div>
     <div>{emitionDate}</div>

@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { setReloadOnChanges } from './reload';
 import { router } from './router';
 import classNames from 'classnames';
 import { createRoot } from 'react-dom/client';
@@ -11,6 +12,8 @@ import { store } from './modules/shared/infrastructure/store';
 import './styles/variables.css';
 import './styles/reset.css';
 import './styles/global.css';
+
+setReloadOnChanges();
 
 window.cx = classNames;
 

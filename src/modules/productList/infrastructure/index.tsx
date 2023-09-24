@@ -8,6 +8,7 @@ import { TopActions } from './topActions';
 import { useSelector } from 'react-redux';
 
 import { useOnMount } from '../../shared/app/hooks/customHooks';
+import { FilterProducts } from '../app';
 import { selectProductsDict } from '../app/selector';
 
 import { IProduct } from '../../product/domain';
@@ -29,12 +30,7 @@ export const ProductList = () => {
   }, [productsDict]);
 
   const onFilter = (textToFilter: string) => {
-    setFiltered(Object.values(productsDict).filter((product) => {
-      return product.name.includes(textToFilter)
-      || product.description.includes(textToFilter)
-      || product.emitionDate.includes(textToFilter)
-      || product.revisionDate.includes(textToFilter);
-    }));
+    setFiltered(FilterProducts(productsDict, textToFilter));
   };
 
   return <div className={styles.container}>

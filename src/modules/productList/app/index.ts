@@ -1,6 +1,6 @@
 import { dateToOwnFormat } from '../../shared/app/utils/date';
 
-import { IProduct } from '../../product/domain';
+import { IProduct, ProductsMap } from '../../product/domain';
 import { IBackendProduct } from '../domain/interfaces';
 
 export const BakendProductParser = (backendProduct: IBackendProduct): IProduct => {
@@ -15,3 +15,11 @@ export const BakendProductParser = (backendProduct: IBackendProduct): IProduct =
   };
 };
 
+export const FilterProducts = (productsDict: ProductsMap, searchString: string) => {
+  return Object.values(productsDict).filter((product) => {
+    return product.name.includes(searchString)
+    || product.description.includes(searchString)
+    || product.emitionDate.includes(searchString)
+    || product.revisionDate.includes(searchString);
+  });
+};

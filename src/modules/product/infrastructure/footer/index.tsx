@@ -62,7 +62,11 @@ export const FooterForm = ({ product, isNew }: Props) => {
     <Button styleType="secondary" type="link" route="/">
       Cancel
     </Button>
-    <Button onClick={onSave} disabled={!!productErros.length}>
+    <Button
+      onClick={onSave}
+      disabled={!!productErros.length}
+      disabledTooltip="Solucione los problemas en el formulario antes de guardar"
+    >
       {isNew ? 'Enviar' : 'Guardar'}
     </Button>
   </div>;

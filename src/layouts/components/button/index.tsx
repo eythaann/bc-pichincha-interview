@@ -42,11 +42,15 @@ export const Button = (props: Props) => {
     }
   };
 
-  const button = <button disabled={disabled} className={classNames} onClick={onInternalClick}>
+  const button = <button
+    className={classNames}
+    onClick={onInternalClick}
+    disabled={disabled}
+  >
     {children}
   </button>;
 
-  if (disabledTooltip) {
+  if (disabled && disabledTooltip) {
     return <Tooltip text={disabledTooltip}>
       {button}
     </Tooltip>;

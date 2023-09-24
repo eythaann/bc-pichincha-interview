@@ -1,3 +1,4 @@
+import { Env } from './config';
 import { Action as _Action, combineReducers, configureStore } from '@reduxjs/toolkit';
 
 import { productReducer } from '../../product/app/slice';
@@ -14,7 +15,7 @@ export const store = configureStore({
     }),
     errors: errorsReducers,
   }),
-  devTools: true,
+  devTools: Env.ambient !== 'production',
 });
 
 export type store = {
