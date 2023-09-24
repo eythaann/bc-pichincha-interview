@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { Popup } from '../../src/layouts/components/popup';
-import { fireEvent, render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { fireEvent, render } from '@testing-library/react';
 
 describe('Popup component', () => {
   it('should toggle open state on trigger click and close on click outside', () => {

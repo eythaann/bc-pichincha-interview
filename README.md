@@ -79,6 +79,8 @@
     <li><code>dev</code>: This script runs the build script in development mode.</li>
     <li><code>test</code>: Runs Jest in silent mode.</li>
     <li><code>test:coverage</code>: Runs Jest with coverage in silent mode.</li>
+    <li><code>lint</code>: Runs linter.</li>
+    <li><code>lint:fix</code>: Runs linter with --fix mode to clean the code.</li>
   </ul>
   <h2>Repository</h2>
   <p>The project is hosted on <a href="https://github.com/Eythaann/bc-pichincha-interview" target="_new">GitHub</a>
