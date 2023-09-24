@@ -15,10 +15,11 @@ export const BakendProductParser = (backendProduct: IBackendProduct): IProduct =
   };
 };
 
-export const FilterProducts = (productsDict: ProductsMap, searchString: string) => {
+export const FilterProducts = (productsDict: ProductsMap, textToSearch: string) => {
+  const searchString = textToSearch.toLowerCase();
   return Object.values(productsDict).filter((product) => {
-    return product.name.includes(searchString)
-    || product.description.includes(searchString)
+    return product.name.toLowerCase().includes(searchString)
+    || product.description.toLowerCase().includes(searchString)
     || product.emitionDate.includes(searchString)
     || product.revisionDate.includes(searchString);
   });

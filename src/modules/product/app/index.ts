@@ -1,9 +1,6 @@
-import { z } from 'zod';
-
-import { addYears, dateToOwnFormat, ownFormatToDate, validateTime } from '../../shared/app/utils/date';
+import { addYears, dateToOwnFormat } from '../../shared/app/utils/date';
 import { generateId } from '../../shared/app/utils/idGenerator';
 
-import { Time } from '../../shared/domain/types';
 import { IProduct, OnBuildingProduct } from '../domain';
 
 export class Product implements OnBuildingProduct {
