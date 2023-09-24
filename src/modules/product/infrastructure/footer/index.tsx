@@ -18,11 +18,12 @@ import { OnBuildingProduct } from '../../domain';
 import styles from './index.module.css';
 
 type Props = {
+  onReset: () => boolean;
   isNew: boolean;
   product: OnBuildingProduct;
 };
 
-export const FooterForm = ({ product, isNew }: Props) => {
+export const FooterForm = ({ product, isNew, onReset }: Props) => {
   const { id, name, description, logo, emitionDate, revisionDate } = product;
 
   const showErrors = useAppSelector(selectShowErrors);
@@ -59,9 +60,14 @@ export const FooterForm = ({ product, isNew }: Props) => {
   };
 
   return <div className={styles.footer}>
-    <Button styleType="secondary" type="link" route="/">
-      Cancel
-    </Button>
+    {isNew 
+      ? <Button onClick={onReset} styleType="secondary">
+          Reiniciar
+        </Button>
+      : <Button styleType="secondary" type="link" route="/">
+        Cancelar 
+      </Button>
+    }
     <Button
       onClick={onSave}
       disabled={!!productErros.length}

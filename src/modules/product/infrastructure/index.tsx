@@ -79,6 +79,12 @@ export const ProductFields = () => {
     }));
   };
 
+  const onReset = () => {
+    if (isNew) {
+      setInternalProduct(new Product)
+    }
+  };
+
   const onChangeEmitionDate = (value: string) => {
     setInternalProduct((prevState) => ({
       ...prevState!,
@@ -134,7 +140,7 @@ export const ProductFields = () => {
           value={revisionDate}
         />
       </div>
-      <FooterForm isNew={isNew} product={internalProduct} />
+      <FooterForm onReset={onReset} isNew={isNew} product={internalProduct} />
     </div>
   </div>;
 };

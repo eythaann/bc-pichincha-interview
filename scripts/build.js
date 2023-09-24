@@ -96,7 +96,7 @@ const context = await esbuild.context({
   sourcemap: process.env.ambient !== 'production',
   outfile: 'dist/bundle.js',
   define: {
-    'process.env': JSON.stringify(ENV),
+    'process.env': JSON.stringify(ENV || {}),
   },
   plugins: [
     CssModulesPlugin(),
