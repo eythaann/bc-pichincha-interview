@@ -18,7 +18,7 @@ import { OnBuildingProduct } from '../../domain';
 import styles from './index.module.css';
 
 type Props = {
-  onReset: () => boolean;
+  onReset: () => void;
   isNew: boolean;
   product: OnBuildingProduct;
 };
@@ -27,7 +27,7 @@ export const FooterForm = ({ product, isNew, onReset }: Props) => {
   const { id, name, description, logo, emitionDate, revisionDate } = product;
 
   const showErrors = useAppSelector(selectShowErrors);
-  const productErros = useAppSelector(selectProductErrors);
+  const productErrors = useAppSelector(selectProductErrors);
   const dispatch = useAppDispatch();
 
   const onSave = () => {
@@ -70,7 +70,7 @@ export const FooterForm = ({ product, isNew, onReset }: Props) => {
     }
     <Button
       onClick={onSave}
-      disabled={!!productErros.length}
+      disabled={!!productErrors.length}
       disabledTooltip="Solucione los problemas en el formulario antes de guardar"
     >
       {isNew ? 'Enviar' : 'Guardar'}
