@@ -1,3 +1,6 @@
+<html>
+
+<body>
   <h1>Devsu-interview</h1>
   <p>
     Hi again devsuvians! This project is a frontend developed for an interview with Devsu and Banco de Pichincha.
@@ -72,26 +75,60 @@
       </ul>
     </li>
   </ol>
-  <h2>Scripts</h2>
-  <ul>
-    <li><code>start:production</code>: This script runs the build script first and then serves the built application.
-    </li>
-    <li><code>dev</code>: This script runs the build script in development mode.</li>
-    <li><code>test</code>: Runs Jest in silent mode.</li>
-    <li><code>test:coverage</code>: Runs Jest with coverage in silent mode.</li>
-    <li><code>lint</code>: Runs linter.</li>
-    <li><code>lint:fix</code>: Runs linter with --fix mode to clean the code.</li>
-  </ul>
-  <h2>Repository</h2>
-  <p>The project is hosted on <a href="https://github.com/Eythaann/bc-pichincha-interview" target="_new">GitHub</a>
-    where
-    you can report issues, fork the project and submit pull requests.</p>
-  <h2>Installation</h2>
-  <p>Clone the repository and install the dependencies using <code>npm install</code>. Then you can run the project in
-    development mode using <code>npm run dev</code> or build the project for production using
-    <code>npm run start:production</code>.
-  </p>
-  <h2>License</h2>
-  <p>This project is licensed under the MIT license.</p>
-  <p>For more information, refer to the project <a href="https://github.com/Eythaann/bc-pichincha-interview#readme"
-      target="_new">homepage</a>.</p>
+  <h2>Environment Configuration</h2>
+  <p>You can configure the environment by setting the <code>ambient</code> variable. Here's how to do it:</p>
+  <ol>
+    <li>Create a <code>.env</code> file in the root of your project if it doesn't exist.</li>
+    <li>Add the following line to your <code>.env</code> file to set the environment to development: </li>
+    <br/>
+    
+
+    ambient="dev"
+  </ol>
+
+  <h2>Getting Started</h2>
+  <ol>
+    <li>Clone the repository:</li>
+    <code>git clone https://github.com/Eythaann/bc-pichincha-interview.git</code>
+    <li>Install the dependencies:</li>
+    <code>npm install</code>
+    <li>To run in development mode:</li>
+    <code>npm run dev</code>
+    <li>To build and start in production mode:</li>
+    <code>npm run start:production</code>
+  </ol>
+  <h2>Testing</h2>
+    <p>Run the tests to ensure everything is working as expected:</p>
+    <code>npm run test</code>
+    <br/>
+    <br/>
+    <p>With coverage:</p>
+    <code>npm run test:coverage</code>
+  <h2>
+    <h2>Scripts</h2>
+    <ul>
+      <li><code>start:production</code>: This script runs the build script first and then serves the built application.
+      </li>
+      <li><code>dev</code>: This script runs the build script in development mode.</li>
+      <li><code>test</code>: Runs Jest in silent mode.</li>
+      <li><code>test:coverage</code>: Runs Jest with coverage in silent mode.</li>
+      <li><code>lint</code>: Runs linter.</li>
+      <li><code>lint:fix</code>: Runs linter with --fix mode to clean the code.</li>
+    </ul>
+    <h2>Repository</h2>
+    <p>The project is hosted on <a href="https://github.com/Eythaann/bc-pichincha-interview" target="_new">GitHub</a>
+      where
+      you can report issues, fork the project and submit pull requests.</p>
+    <h2>Installation</h2>
+    <p>Clone the repository and install the dependencies using <code>npm install</code>. Then you can run the project in
+      development mode using <code>npm run dev</code> or build the project for production using
+      <code>npm run start:production</code>.
+    </p>
+    <h2>License</h2>
+    <p>This project is licensed under the MIT license.</p>
+    <p>For more information, refer to the project <a href="https://github.com/Eythaann/bc-pichincha-interview#readme"
+        target="_new">homepage</a>.</p>
+
+</body>
+
+</html>
